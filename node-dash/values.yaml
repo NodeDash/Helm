@@ -1,0 +1,92 @@
+# Global settings
+global:
+  registry: registry.nodedash.app
+  imageTag: 1.0.0
+
+# Frontend UX settings
+ux:
+  enabled: true
+  image:
+    repository: nodedash/nodedash-ux
+    tag: null  # Uses global.imageTag if not set
+  service:
+    type: ClusterIP
+    port: 3000
+  ingress:
+    enabled: false
+  env:
+    VITE_API_MODE: live
+    VITE_API_URL: https://api.nodedash.app
+
+# Backend API settings
+api:
+  enabled: true
+  image:
+    repository: nodedash/nodedash-api
+    tag: null  # Uses global.imageTag if not set
+  service:
+    type: ClusterIP
+    port: 8000
+  ingress:
+    enabled: false
+  env:
+    SECRET_KEY: your_secure_secret_key
+    EMAIL_MODE: MAILGUN
+    FROM_EMAIL: noreply@example.com
+    FROM_NAME: "NodeDash"
+    MAILGUN_API_KEY: abcdefg
+    MAILGUN_DOMAIN: example.com
+    MAILGUN_REGION: eu
+    WEBSITE_ADDRESS: https://nodedash.app
+    API_ADDRESS: https://api.nodedash.app
+
+# Ingest service settings
+ingest:
+  enabled: true
+  image:
+    repository: nodedash/nodedash-ingest
+    tag: null  # Uses global.imageTag if not set
+  service:
+    type: ClusterIP
+    port: 8000
+  env:
+    SECRET_KEY: your_secure_secret_key
+
+# Background service settings
+service:
+  enabled: true
+  image:
+    repository: nodedash/nodedash-service
+    tag: null  # Uses global.imageTag if not set
+
+# Database migrations settings
+migrations:
+  enabled: true
+  image:
+    repository: nodedash/nodedash-api
+    tag: null  # Uses global.imageTag if not set
+
+# PostgreSQL settings
+postgresql:
+  enabled: true
+  image:
+    repository: postgres
+    tag: "17.4"
+  auth:
+    username: postgres
+    password: postgres
+    database: device_manager
+  primary:
+    persistence:
+      enabled: true
+      size: 8Gi
+
+# Valkey (Redis) settings
+valkey:
+  enabled: true
+  image:
+    repository: valkey/valkey
+    tag: "8.1.1-alpine3.21"
+  persistence:
+    enabled: true
+    size: 8Gi
