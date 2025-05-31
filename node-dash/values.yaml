@@ -7,7 +7,7 @@ global:
 ux:
   enabled: true
   image:
-    repository: nodedash/nodedash-ux
+    repository: nodedash/ux
     tag: null  # Uses global.imageTag if not set
   service:
     type: ClusterIP
@@ -22,7 +22,7 @@ ux:
 api:
   enabled: true
   image:
-    repository: nodedash/nodedash-api
+    repository: nodedash/api
     tag: null  # Uses global.imageTag if not set
   service:
     type: ClusterIP
@@ -44,7 +44,7 @@ api:
 ingest:
   enabled: true
   image:
-    repository: nodedash/nodedash-ingest
+    repository: nodedash/ingest
     tag: null  # Uses global.imageTag if not set
   service:
     type: ClusterIP
@@ -56,14 +56,14 @@ ingest:
 service:
   enabled: true
   image:
-    repository: nodedash/nodedash-service
+    repository: nodedash/service
     tag: null  # Uses global.imageTag if not set
 
 # Database migrations settings
 migrations:
   enabled: true
   image:
-    repository: nodedash/nodedash-api
+    repository: nodedash/api
     tag: null  # Uses global.imageTag if not set
 
 # PostgreSQL settings
