@@ -39,6 +39,7 @@ api:
     MAILGUN_REGION: eu
     WEBSITE_ADDRESS: https://nodedash.app
     API_ADDRESS: https://api.nodedash.app
+    INGEST_ADDRESS: https://ingest.nodedash.app
 
 # Ingest service settings
 ingest:

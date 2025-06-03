@@ -20,7 +20,7 @@ spec:
       containers:
         - name: api
           image: "{{ .Values.global.registry }}/{{ .Values.api.image.repository }}:{{ .Values.api.image.tag | default .Values.global.imageTag }}"
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always 
           ports:
             - name: http
               containerPort: 8000
@@ -48,6 +48,8 @@ spec:
               value: {{ .Values.api.env.WEBSITE_ADDRESS }}
             - name: API_ADDRESS
               value: {{ .Values.api.env.API_ADDRESS }}
+            - name: INGEST_ADDRESS 
+              value: {{ .Values.api.env.INGEST_ADDRESS }}
 ---
 apiVersion: v1
 kind: Service
