@@ -47,6 +47,15 @@ The following table lists the configurable parameters of the NodeDash chart and 
 | `api.service.type` | API service type | `ClusterIP`              |
 | `api.service.port` | API service port | `8000`                   |
 | `api.env.SECRET_KEY` | API secret key | `your_secure_secret_key` |
+| `api.env.WEBSITE_ADDRESS` | URL of UX | `https://dashboard.nodedash.app` |
+| `api.env.API_ADDRESS` | URL of API | `https://api.nodedash.app` |
+| `api.env.INGEST_ADDRESS` | URL of Ingest API | `https://ingest.nodedash.app` |
+| `api.env.EMAIL_MODE` | Outbound email mode (MAILGUN/SMTP) | `MAILGUN` |
+| `api.env.FROM_EMAIL` | From Email Address | `no-reply@nodedash.app` |
+| `api.env.FROM_NAME` | From Name | `NodeDash` |
+| `api.env.MAILGUN_API_KEY` | Mailgun API Key | `your_mailgun_api_key` |
+| `api.env.MAILGUN_DOMAIN` | Mailgun Domain | `nodedash.app` |
+| `api.env.MAILGUN_REGION` | Mailgun Region | `eu` |
 
 ### Database Parameters
 
